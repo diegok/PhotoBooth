@@ -10,7 +10,7 @@ post '/store-image' => sub {
         my $filename = 'pic/' . time . '.jpg';
         my $asset = Mojo::Asset::File->new( path => 'public/' . $filename );
         $asset->add_chunk( $jpeg );
-        $self->render( text => "http://localhost:3000/$filename");
+        $self->render( text => $self->req->url->path( $filename ) );
     }
 };
 
