@@ -16,7 +16,7 @@ If you have curl, you can install all you need just running:
 
 And point your browser to http://localhost:3000/
 
-Check the L<http://mojolicio.us|mojolicious> docs for other deployment options.
+Check the L<http://mojolicio.us> docs for other deployment options.
 
 =head2 See also
 
@@ -24,13 +24,13 @@ This program is just glue over other great software.
 
 =over
 
-=item L<http://mojolicio.us/|mojolicious>
+=item L<http://mojolicio.us/>
 
-=item L<http://code.google.com/p/jpegcam/|jpegcam>
+=item L<http://code.google.com/p/jpegcam/>
 
-=item L<http://jquery.com/|jQuery>
+=item L<http://jquery.com/>
 
-=cut
+=back
 
 =head2 Licence
 
