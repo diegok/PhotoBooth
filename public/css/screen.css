@@ -1,0 +1,101 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+body {
+    margin:0;
+    padding:0;
+    background:#111;
+    color:#fff;
+    font: normal normal normal 0.9em/normal Verdana, sans-serif;
+}
+
+div,h1,h2,h3,h4,h5,h6,p,ul,li,input,textarea {
+    margin:0;
+    padding:5px 0;
+}
+
+h1 { 
+    font: normal normal normal 3em/normal Lobster, Georgia, Times, serif; 
+    text-shadow: orange 0 1px 0px;
+}
+h2 { font: normal normal normal 1.4em/normal Georgia, Times, serif; }
+h3 { font: normal normal normal 1.2em/normal Georgia, Times, serif; }
+
+img { border:0; }
+
+div#header {
+    max-width:980px;
+    padding:10px;
+    margin:0 auto 10px;
+}
+
+div#content {
+    max-width:980px;
+    padding:10px;
+    margin:0 auto 10px;
+    text-shadow: #DDD 0 1px 0px;
+    background:#fff;
+    border-radius:6px;
+    color:#111;
+}
+
+div#cam-input {
+    width:320px;
+    float: right;
+}
+div#webcam {
+    margin:0;
+    padding:0;
+    width: 320px;
+    height: 240px;
+}
+div.cam-controls {
+    padding:15px 0;
+    text-align:center;
+    background-color:#ccc;
+    border-top:1px solid #aaa;
+}
+div.cam-controls a {
+    padding:5px 10px;
+    margin:3px;
+    border-radius:4px;
+    background-color:#eee;
+    color:#aaa;
+    text-decoration:none;
+}
+div.cam-controls a#cam-click {
+    background-color:#889DBC;
+    color:#fff;
+}
+div.cam-controls a:hover,
+div.cam-controls a#cam-click:hover {
+    background-color:#4AC0F2;
+    color:#fff;
+}
+
+div#frame {
+    margin:0;
+    padding:10px;
+    min-height:290px;
+}
+
+div#count {
+    font-size: 4em;
+    margin:40px 0 0;
+    width:600px;
+    text-align: center;
+}
+
+div#last-session { display: none; }
+
+div#shots {
+    clear:both;
+    margin:20px 0 10px;
+    background:#000;
+    padding:10px 25px;
+    border-radius: 6px;
+    min-height:230px;
+}
+
+div#shots img{
+    width: 310px;
+}

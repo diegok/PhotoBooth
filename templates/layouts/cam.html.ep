@@ -1,0 +1,37 @@
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <title>Photo booth online</title> 
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/webcam.js"></script> 
+    <script language="JavaScript"> 
+        webcam.set_api_url( '/store-image' );
+        webcam.set_swf_url( '/flash/webcam.swf' );
+        webcam.set_shutter_sound( true, '/audio/shutter.mp3' );
+        webcam.set_quality( 90 );
+        webcam.set_stealth( true );
+    </script> 
+    <link href="css/screen.css" media="screen" rel="stylesheet" type="text/css" /> 
+</head> 
+<body> 
+    <div id="header">
+        <h1>PhotoBooth</h1>
+    </div>
+% if ( flash 'message' ) {
+    <%= tag 'div', class => 'app_msg' => sub { flash 'message' } %>
+    <%= tag script => {%>
+        $(document).ready( function() {
+            disapear_in( $('div.app_msg'), 6000 );
+        });
+        function disapear_in( element, ms ) {
+            setTimeout(function() {
+                element.fadeTo('slow', 0.01).slideUp();
+            }, ms);
+        }
+    <%} %>
+% }
+    <div id="content">
+        <%= content %>
+    </div>
+</body>
+</html>

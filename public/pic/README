@@ -1,0 +1,5 @@
+WARNING
+=======
+
+At this moment, the app will store all taken pics in this directory. You should
+take care of deleting the old ones.

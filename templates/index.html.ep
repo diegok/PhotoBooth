@@ -1,0 +1,82 @@
+% layout 'cam';
+
+<div id="cam-input">
+    <div id="webcam"></div>
+    <div class="cam-controls">
+        <a href="#config" id="cam-config">Configure...</a>
+        <a href="#click" id="cam-click">Take a picture</a>
+    </div>
+</div>
+<div id="frame">
+    <h2>Are you ready for a photo session?</h2>
+    <div id="count">Let's start &gt;</div> 
+</div>
+
+<div id="last-session">
+    <h2>Last shot session</h2>
+    <div id="shots"></div>
+</div>
+
+<script language="JavaScript"> 
+    var mask = jQuery('<div></div>').css({
+        position:           'absolute',
+        top:                0,
+        'z-index':          '9000',
+        'background-color': '#fff',
+        display:            'none',
+        height:             '100%',
+        width:              '100%'
+    });
+    var take = 0;
+    webcam.set_hook( 'onComplete', 'pic_ready' );
+    function pic_ready(url) {
+        if ( url ) {
+            take = take + 1;
+            $('#shot').html('<img src="' + url + '"/>');
+            if ( take == 3 ) {
+                take = 0;
+                setTimeout( function(){ $('#count').html('Try again!') }, 500 );
+            }
+            else {
+                countdown( 3, function(){ webcam.snap() } );
+            }
+            $('#shots').append('<img src="' + url + '"/>');
+        }
+        else {
+            alert(url);
+        }
+        $('#shot').fadeIn('fast');
+    }
+
+    function countdown( secs, func ) {
+        var count = $('#count');
+        if ( secs ) {
+            count.html(secs);
+            setTimeout( function(){ countdown( secs - 1, func ) }, 1000 );
+        }
+        else {
+            $('#count').html('smile!');
+            mask.fadeTo('fast', 1, function(){ 
+                func(); 
+                mask.fadeTo( 'normal', 0, function(){ mask.hide() } ); 
+            });
+            
+        }
+    }
+    $(document).ready(function(){
+        jQuery('body').append(mask);
+
+        $('#webcam').html(webcam.get_html(320, 240));
+        $('#cam-config').click(function(){
+            webcam.configure();
+            return false;
+        });
+        $('#cam-click').click(function(){
+            $('#last-session').slideDown('slow');
+            countdown( 3, function(){ webcam.snap() } );
+            $('#shots').empty();
+            return false;
+        });
+    });
+</script> 
+
