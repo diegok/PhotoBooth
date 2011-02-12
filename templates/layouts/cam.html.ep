@@ -19,7 +19,7 @@
     </div>
 % if ( flash 'message' ) {
     <%= tag 'div', class => 'app_msg' => sub { flash 'message' } %>
-    <%= tag script => {%>
+    <%= tag script => begin %>
         $(document).ready( function() {
             disapear_in( $('div.app_msg'), 6000 );
         });
@@ -28,7 +28,7 @@
                 element.fadeTo('slow', 0.01).slideUp();
             }, ms);
         }
-    <%} %>
+    <% end %>
 % }
     <div id="content">
         <%= content %>
