@@ -9,7 +9,7 @@ post '/store-image' => sub {
     if ( my $jpeg = $self->req->content->asset->{content} ) {
         my $filename = 'pic/' . time . '.jpg';
         my $asset = Mojo::Asset::File->new( path => 'public/' . $filename );
-        $asset->add_chunk( $jpeg );
+        $asset->add_chunk( $jpeg )->cleanup( 0 );
         $self->render( text => $self->req->url->path( $filename ) );
     }
 };
